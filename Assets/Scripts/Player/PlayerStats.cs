@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class PlayerStats : MonoBehaviour
     float currentMoveSpeed;
     float currentMight;
     float currentProjectileSpeed;
+
+    private Slider hpbar;
 
     [Header("Experience/Level")]
     public int experience = 0;
@@ -33,6 +37,12 @@ public class PlayerStats : MonoBehaviour
         currentMoveSpeed = characterData.MoveSpeed;
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
+        hpbar = GameObject.FindGameObjectWithTag("hpbar").GetComponent<Slider>();
+    }
+
+    void Start() {
+        hpbar.maxValue = currentHealth;
+        hpbar.value = currentHealth;
     }
 
     private void Update(){
@@ -67,6 +77,8 @@ public class PlayerStats : MonoBehaviour
         if (!isInvincible)
         {
             currentHealth -= dmg;
+
+            hpbar.value = currentHealth;
 
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
