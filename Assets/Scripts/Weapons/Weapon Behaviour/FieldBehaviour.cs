@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FieldBehaviour : MeleeWeaponBehavior
 {
+    public PlayerStats playerStats;
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
     }
-
 
 }

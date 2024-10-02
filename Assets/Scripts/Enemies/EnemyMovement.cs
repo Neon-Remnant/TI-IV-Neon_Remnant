@@ -5,16 +5,31 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
+
     Transform player;
-    // Start is called before the first frame update
+    private Vector3 originalScale;
+
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().transform;  
+        player = FindObjectOfType<PlayerMovement>().transform;
+        originalScale = transform.localScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Movimentação do inimigo
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.MoveSpeed * Time.deltaTime);
+
+        // Verificar a direção do movimento e flipar o sprite
+        if (player.position.x < transform.position.x)
+        {
+            // Virar para a esquerda
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+        }
+        else
+        {
+            // Virar para a direita
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
+        }
     }
 }

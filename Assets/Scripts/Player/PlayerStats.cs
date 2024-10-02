@@ -28,6 +28,7 @@ public class PlayerStats : MonoBehaviour
     float invincibilityTimer;
     bool isInvincible;
 
+    public bool isFieldActive;
 
 
     void Awake()
@@ -38,18 +39,23 @@ public class PlayerStats : MonoBehaviour
         currentMight = characterData.Might;
         currentProjectileSpeed = characterData.ProjectileSpeed;
         hpbar = GameObject.FindGameObjectWithTag("hpbar").GetComponent<Slider>();
+        isFieldActive = false;
     }
 
-    void Start() {
+    void Start()
+    {
         hpbar.maxValue = currentHealth;
         hpbar.value = currentHealth;
     }
 
-    private void Update(){
-        if(invincibilityTimer > 0){
+    private void Update()
+    {
+        if (invincibilityTimer > 0)
+        {
             invincibilityTimer -= Time.deltaTime;
         }// se o tempo de imortalidade chegar a 0, redefino como não estando invencivel no momento.
-        else if( isInvincible){
+        else if (isInvincible)
+        {
             isInvincible = false;
         }
     }
@@ -72,20 +78,25 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void TakeDamage(float dmg)
-    {
-        // se o player não estiver invencivel, começa o frame de invencibilidade
-        if (!isInvincible)
+    {        
+        Debug.Log("TOMOU DANO");
+        Debug.Log(isFieldActive);
+        // se o player não estiver invencivel e se o escudo não estiver ativo, começa o frame de invencibilidade
+        if (!isFieldActive)
         {
-            currentHealth -= dmg;
-
-            hpbar.value = currentHealth;
-
-            invincibilityTimer = invincibilityDuration;
-            isInvincible = true;
-
-            if (currentHealth <= 0)
+            if (!isInvincible)
             {
-                Kill();
+                currentHealth -= dmg;
+
+                hpbar.value = currentHealth;
+
+                invincibilityTimer = invincibilityDuration;
+                isInvincible = true;
+
+                if (currentHealth <= 0)
+                {
+                    Kill();
+                }
             }
         }
     }

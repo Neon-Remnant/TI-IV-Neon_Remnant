@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -501983298229736269}
   - component: {fileID: -3796140699077506495}
   m_Layer: 0
-  m_Name: Chomp
+  m_Name: Robot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,6 +13,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
     protected float currentSpeed;
     protected float currentCooldownDuration;
     protected int currentPierce;
+    protected PlayerStats playerStats;
 
     void Awake()
     {
@@ -20,12 +21,29 @@ public class MeleeWeaponBehavior : MonoBehaviour
         currentSpeed = weaponData.Speed;
         currentCooldownDuration = weaponData.CooldownDuration;
         currentPierce = weaponData.Pierce;
+
+        playerStats = FindObjectOfType<PlayerStats>();
     }
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        // Ativa o escudo ao criar
+        if (playerStats != null)
+        {
+            playerStats.isFieldActive = true;
+        }
+
         Destroy(gameObject, destroyAfterSeconds);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        // Desativa o escudo quando o objeto é destruído
+        if (playerStats != null)
+        {
+            playerStats.isFieldActive = false;
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D col)

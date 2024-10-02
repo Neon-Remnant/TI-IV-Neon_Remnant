@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21d04a21485ece4f93a4ecafc34831a, type: 3}
-  m_Name: Chomp Enemy
+  m_Name: Robot Enemy
   m_EditorClassIdentifier: 
   moveSpeed: 2
   maxHealth: 10

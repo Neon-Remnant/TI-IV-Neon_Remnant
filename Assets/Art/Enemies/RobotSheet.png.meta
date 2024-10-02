@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cab0bf966d1594a4a8f31880d16440ea
+guid: 4cd3ba2fe50e8064fbdabbc8ed84107f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -93,15 +93,112 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy1_0
+      name: RobotSheet_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 86
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd5df22cf9488a74bb311c83af1abeae
+      internalID: -2013776319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotSheet_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 86
+        width: 19
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 783b720ad26a6f5479b44adaca15ce69
+      internalID: -1843458951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotSheet_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 86
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7b5ac6b0617204fb781297a79d6a64
+      internalID: -1898579724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotSheet_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 86
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8031fedd97949fb4db8197f9bddf7271
+      internalID: -1014877509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotSheet_4
       rect:
         serializedVersion: 2
         x: 5
-        y: 0
+        y: 41
         width: 20
         height: 29
       alignment: 0
@@ -111,18 +208,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dff71ea09cef0a44bec1f94da7dabd8
-      internalID: 175041693
+      spriteID: a4fdc107f5647124f8015d15a2cc9bc0
+      internalID: 1381741396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_1
+      name: RobotSheet_5
       rect:
         serializedVersion: 2
         x: 52
-        y: 0
+        y: 41
         width: 19
         height: 28
       alignment: 0
@@ -132,18 +229,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3bac98986dd2f4faefdc8e2c825a59
-      internalID: 1542987726
+      spriteID: 0a4fd7a3334cfc14d82e5b1f62170919
+      internalID: 1314504596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_2
+      name: RobotSheet_6
       rect:
         serializedVersion: 2
         x: 98
-        y: 0
+        y: 41
         width: 28
         height: 29
       alignment: 0
@@ -153,18 +250,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a135c92a4ca3604885b299fe06c6271
-      internalID: -63375068
+      spriteID: 9a50f80a11c5f7b409562f1de8788f03
+      internalID: -1890158118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_3
+      name: RobotSheet_7
       rect:
         serializedVersion: 2
         x: 144
-        y: 0
+        y: 41
         width: 32
         height: 29
       alignment: 0
@@ -174,18 +271,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6637495c771e68940af9e73b94d50024
-      internalID: 827851176
+      spriteID: 019defbaae2c1a348be603ce67bb0274
+      internalID: -1555826764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_4
+      name: RobotSheet_8
       rect:
         serializedVersion: 2
-        x: 195
-        y: 0
+        x: 2
+        y: 3
         width: 23
         height: 28
       alignment: 0
@@ -195,18 +292,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6d773b600d5ed34d9ec2866297a6005
-      internalID: 331327631
+      spriteID: 67de9a31c9849c444ab6a3bcfa89fca7
+      internalID: -1407492503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_5
+      name: RobotSheet_9
       rect:
         serializedVersion: 2
-        x: 246
-        y: 0
+        x: 53
+        y: 3
         width: 19
         height: 29
       alignment: 0
@@ -216,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ffb7752dbafa404e953aee558b9723b
-      internalID: -1007839072
+      spriteID: 4b419bd1871ecf14ea87e77a4ed60a88
+      internalID: -1201555714
       vertices: []
       indices: 
       edges: []
@@ -233,12 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy1_0: 175041693
-      Enemy1_1: 1542987726
-      Enemy1_2: -63375068
-      Enemy1_3: 827851176
-      Enemy1_4: 331327631
-      Enemy1_5: -1007839072
+      RobotSheet_0: -2013776319
+      RobotSheet_1: -1843458951
+      RobotSheet_2: -1898579724
+      RobotSheet_3: -1014877509
+      RobotSheet_4: 1381741396
+      RobotSheet_5: 1314504596
+      RobotSheet_6: -1890158118
+      RobotSheet_7: -1555826764
+      RobotSheet_8: -1407492503
+      RobotSheet_9: -1201555714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
