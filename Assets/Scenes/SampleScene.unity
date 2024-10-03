@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &126611174
 Transform:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 605126483}
@@ -90396,7 +90396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 136456214031417323, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Name
-      value: Chomp
+      value: Robot
       objectReference: {fileID: 0}
     - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Size.x
@@ -90404,7 +90404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Size.y
-      value: 0.78897274
+      value: 1.2335849
       objectReference: {fileID: 0}
     - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Enabled
@@ -90416,24 +90416,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Offset.y
-      value: 0.0038613677
+      value: -0.020839304
       objectReference: {fileID: 0}
     - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 1431352251096046170, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487897289450518528, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8b738d7be82d87d4c831898028c3ed10, type: 2}
     - target: {fileID: 2716008511454811107, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Size.x
-      value: 0.8
+      value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 2716008511454811107, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Size.y
-      value: 1.16
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 2716008511454811107, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 175041693, guid: cab0bf966d1594a4a8f31880d16440ea, type: 3}
+      objectReference: {fileID: -2013776319, guid: 4cd3ba2fe50e8064fbdabbc8ed84107f, type: 3}
+    - target: {fileID: 2716008511454811107, guid: ad734679292df0349bd6d0e649046413, type: 3}
+      propertyPath: m_SortingOrder
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 2716008511454811107, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -90452,11 +90476,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3935598206190353491, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.05
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: 3935598206190353491, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 3935598206190353491, guid: ad734679292df0349bd6d0e649046413, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90658,7 +90682,7 @@ Transform:
   m_GameObject: {fileID: 605126481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.82, y: -0.25, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90806,6 +90830,7 @@ MonoBehaviour:
   experienceCap: 100
   experienceCapIncrease: 100
   invincibilityDuration: 0.5
+  isFieldActive: 0
 --- !u!114 &605126490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91107,8 +91132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 99.78198, y: -24.479187}
-  m_SizeDelta: {x: 200, y: 40}
+  m_AnchoredPosition: {x: 400, y: -20}
+  m_SizeDelta: {x: 500.6051, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157215331
 MonoBehaviour:
