@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -78,7 +79,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     public void TakeDamage(float dmg)
-    {        
+    {
         Debug.Log("TOMOU DANO");
         Debug.Log(isFieldActive);
         // se o player não estiver invencivel e se o escudo não estiver ativo, começa o frame de invencibilidade
@@ -103,7 +104,8 @@ public class PlayerStats : MonoBehaviour
 
     public void Kill()
     {
-        Debug.Log("PLAYER IS DEAD");
+        Debug.Log("O JOGADOR MORREU");
+        SceneManager.LoadScene("GameOver");
     }
 
 
