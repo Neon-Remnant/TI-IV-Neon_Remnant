@@ -5,50 +5,57 @@ using TMPro;
 
 public class SkillTreeManager : MonoBehaviour
 {
-    public GameObject nodePrefab; // Prefab do botão
+    public GameObject nodePrefab;
     private SkillNode rootNode;
+    public PlayerScriptableObject player;
+
+    private static SkillTreeManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Não destrói este objeto ao mudar de cena
+        }
+    }
 
     void Start()
     {
         rootNode = CreateSkillTree();
-        GenerateUI(rootNode, new Vector2(0, 206), 0); // Inicia a geração da UI com a raiz em (0,206)
+        GenerateUI(rootNode, new Vector2(0, 206), 0);
+
+        // Carregar o estado salvo
+        LoadPlayerAttributes();
+        LoadTreeProgress(rootNode);
+
         rootNode.UnlockNode(); // Libera a raiz inicialmente
     }
 
     // Método para criar a skill tree
     private SkillNode CreateSkillTree()
     {
-        // Nível 1
-        SkillNode root = new SkillNode("Habilidade A");
+        SkillNode root = new SkillNode("A", "ATK +10%");
+        SkillNode nodeB = new SkillNode("B", "HP +20%");
+        SkillNode nodeC = new SkillNode("C", "ATK +5%");
 
-        // Nível 2
-        SkillNode nodeB = new SkillNode("Habilidade B");
-        SkillNode nodeC = new SkillNode("Habilidade C");
+        SkillNode nodeD = new SkillNode("D", "ATK +5%");
+        SkillNode nodeE = new SkillNode("E", "ATK +10%");
+        SkillNode nodeF = new SkillNode("F", "SPD +5%");
+        SkillNode nodeG = new SkillNode("G", "SPD +5%");
+        SkillNode nodeH = new SkillNode("H", "HP +15%");
+        SkillNode nodeI = new SkillNode("I", "ATK +10%");
 
-        // Nível 3
-        SkillNode nodeD = new SkillNode("Habilidade D");
-        SkillNode nodeE = new SkillNode("Habilidade E");
-        SkillNode nodeF = new SkillNode("Habilidade F");
-        SkillNode nodeG = new SkillNode("Habilidade G");
-        SkillNode nodeH = new SkillNode("Habilidade H");
-        SkillNode nodeI = new SkillNode("Habilidade I");
+        SkillNode nodeJ = new SkillNode("J", "ATK +20%");
+        SkillNode nodeK = new SkillNode("K", "ATK +15%");
+        SkillNode nodeL = new SkillNode("L", "SPD +10%");
+        SkillNode nodeM = new SkillNode("M", "SPD +10%");
+        SkillNode nodeN = new SkillNode("N", "HP +25%");
+        SkillNode nodeO = new SkillNode("O", "ATK +15%");
 
-        // Nível 4
-        SkillNode nodeJ = new SkillNode("Habilidade J");
-        SkillNode nodeK = new SkillNode("Habilidade K");
-        SkillNode nodeL = new SkillNode("Habilidade L");
-        SkillNode nodeM = new SkillNode("Habilidade M");
-        SkillNode nodeN = new SkillNode("Habilidade N");
-        SkillNode nodeO = new SkillNode("Habilidade O");
-
-        // Conectar o nível 2 ao nível 1
         ConnectNodes(root, nodeB, nodeC);
-
-        // Conectar o nível 3 ao nível 2
         ConnectNodes(nodeB, nodeD, nodeE, nodeF);
         ConnectNodes(nodeC, nodeG, nodeH, nodeI);
-
-        // Conectar o nível 4 ao nível 3
         ConnectNodes(nodeD, nodeJ, nodeK);
         ConnectNodes(nodeE, nodeJ, nodeK, nodeL);
         ConnectNodes(nodeF, nodeK, nodeL);
@@ -59,7 +66,6 @@ public class SkillTreeManager : MonoBehaviour
         return root;
     }
 
-    // Método auxiliar para conectar os nós
     private void ConnectNodes(SkillNode parent, params SkillNode[] children)
     {
         foreach (var child in children)
@@ -69,128 +75,140 @@ public class SkillTreeManager : MonoBehaviour
         }
     }
 
-    // Método para gerar a UI
     private void GenerateUI(SkillNode node, Vector2 position, int depth)
-    {
-        // Verifica se o nó atual é nulo
-        if (node == null)
-        {
-            Debug.LogError("Node is null!");
-            return;
-        }
-
-        // Cria o botão para o nó atual
-        GameObject buttonObject = Instantiate(nodePrefab, transform);
-        if (buttonObject == null)
-        {
-            Debug.LogError("Button prefab could not be instantiated!");
-            return;
-        }
-
-        // Define a posição do botão
-        buttonObject.GetComponent<RectTransform>().anchoredPosition = position;
-
-        // Obtém o componente Button
-        Button button = buttonObject.GetComponent<Button>();
-        if (button == null)
-        {
-            Debug.LogError("Button component is missing!");
-            return;
-        }
-
-        // Obtém o componente TMP_Text
-        TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
-        if (buttonText == null)
-        {
-            Debug.LogError("TMP_Text component is missing in button!");
-            return;
-        }
-
-        // Define o texto do botão como o nome do nó
-        buttonText.text = node.name;
-        button.onClick.AddListener(() => OnNodeClicked(node)); // Adiciona listener ao botão
-
-        node.button = button; // Armazena referência ao botão no nó
-
-        // Definindo posições fixas para cada nó
-        Dictionary<string, Vector2> nodePositions = new Dictionary<string, Vector2>(){
-            { "Habilidade A", new Vector2(0, 206) },
-            { "Habilidade B", new Vector2(-250, 116) },
-            { "Habilidade C", new Vector2(250, 116) },
-            { "Habilidade D", new Vector2(-350, 16) },
-            { "Habilidade E", new Vector2(-250, 16) },
-            { "Habilidade F", new Vector2(-150, 16) },
-            { "Habilidade G", new Vector2(150, 16) },
-            { "Habilidade H", new Vector2(250, 16) },
-            { "Habilidade I", new Vector2(350, 16) },
-            { "Habilidade J", new Vector2(-450, -84) },
-            { "Habilidade K", new Vector2(-250, -84) },
-            { "Habilidade L", new Vector2(-50, -84) },
-            { "Habilidade M", new Vector2(50, -84) },
-            { "Habilidade N", new Vector2(250, -84) },
-            { "Habilidade O", new Vector2(450, -84) }
-        }; // funcionou amem
-
-        // Definindo a posição para o nó atual com base no seu nome
-        if (nodePositions.ContainsKey(node.name))
-        {
-            buttonObject.GetComponent<RectTransform>().anchoredPosition = nodePositions[node.name];
-        }
-        else
-        {
-            Debug.LogError($"No fixed position defined for node: {node.name}");
-            return;
-        }
-
-        // Gera UI para os filhos
-        foreach (var child in node.children)
-        {
-            // Chama recursivamente para gerar a UI dos filhos
-            GenerateUI(child, nodePositions[child.name], depth + 1);
-        }
-    }
-
-    // Método chamado quando um nó é clicado
-    private void OnNodeClicked(SkillNode node)
-    {
-        if (!node.IsUnlocked()) // Verifica se o nó não está bloqueado
-        {
-            Debug.Log($"Attempted to click a locked node: {node.name}");
-            return;
-        }
-
-        // Log do nó clicado
-        Debug.Log($"Clicked on node: {node.name}");
-
-        // Se o nó clicado for "Habilidade A", não executa a busca
-        if (node.name == "Habilidade A")
-        {
-            node.UnlockDescendants(); // Desbloqueia descendentes da raiz
-            return; // Retorna para não bloquear outros nós
-        }
-
-        // Limpa a árvore, bloqueando todos os nós
-        BlockAllNodes(rootNode);
-
-        // Desbloquear o nó clicado e seus descendentes
-        node.UnlockDescendants();
-
-        // Bloquear o nó clicado para impedir nova interação
-        node.LockNode();
-        Debug.Log($"Locked clicked node: {node.name}");
-    }
-
-    // Método para bloquear todos os nós
-    private void BlockAllNodes(SkillNode node)
     {
         if (node == null) return;
 
-        node.LockNode(); // Bloqueia o nó atual
+        GameObject buttonObject = Instantiate(nodePrefab, transform);
+        buttonObject.GetComponent<RectTransform>().anchoredPosition = position;
+        Button button = buttonObject.GetComponent<Button>();
 
-        // Chama recursivamente para bloquear os filhos
+        TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+        buttonText.text = node.description; // Alterado para usar a descrição da habilidade
+        button.onClick.AddListener(() => OnNodeClicked(node));
+
+        node.button = button; // Armazena referência ao botão no nó
+
+        Dictionary<string, Vector2> nodePositions = new Dictionary<string, Vector2>()
+        {
+            { "A", new Vector2(0, 206) },
+            { "B", new Vector2(-250, 116) },
+            { "C", new Vector2(250, 116) },
+            { "D", new Vector2(-350, 16) },
+            { "E", new Vector2(-250, 16) },
+            { "F", new Vector2(-150, 16) },
+            { "G", new Vector2(150, 16) },
+            { "H", new Vector2(250, 16) },
+            { "I", new Vector2(350, 16) },
+            { "J", new Vector2(-450, -84) },
+            { "K", new Vector2(-250, -84) },
+            { "L", new Vector2(-50, -84) },
+            { "M", new Vector2(50, -84) },
+            { "N", new Vector2(250, -84) },
+            { "O", new Vector2(450, -84) }
+        };
+
+        if (nodePositions.ContainsKey(node.id))
+        {
+            buttonObject.GetComponent<RectTransform>().anchoredPosition = nodePositions[node.id];
+        }
+
         foreach (var child in node.children)
         {
-            BlockAllNodes(child);
+            GenerateUI(child, nodePositions[child.id], depth + 1);
         }
+    }
+
+    private void OnNodeClicked(SkillNode node)
+    {
+        if (!node.IsUnlocked()) // Verifica se o nó não está desbloqueado
+        {
+            Debug.Log($"Tentativa de clicar em um nó bloqueado: {node.id}");
+            return;
+        }
+
+        // Aplica o efeito da habilidade no jogador
+        node.ApplyEffect(player);
+
+        // Salvar o estado do nó (habilidade desbloqueada)
+        PlayerPrefs.SetInt(node.id + "_unlocked", 1);
+
+        // Salvar os atributos do jogador (ATK, HP, etc)
+        SavePlayerAttributes();
+
+        Debug.Log($"Nó {node.id} clicado. Efeito aplicado: {node.description}");
+
+        // Limpa a árvore, bloqueando todos os nós
+        BlockAllNodes(rootNode, node); // Altera a forma de bloqueio
+
+        // Desbloquear o nó clicado e seus descendentes
+        node.UnlockDescendants();
+    }
+
+    // Método para bloquear todos os nós usando busca em largura
+    private void BlockAllNodes(SkillNode root, SkillNode currentNode)
+    {
+        Queue<SkillNode> queue = new Queue<SkillNode>();
+        queue.Enqueue(root);
+
+        while (queue.Count > 0)
+        {
+            SkillNode node = queue.Dequeue();
+            if (node != currentNode) // Não bloqueia o nó atual
+            {
+                node.LockNode();
+            }
+
+            // Adiciona os filhos à fila
+            foreach (var child in node.children)
+            {
+                queue.Enqueue(child);
+            }
+        }
+    }
+
+    // Função para salvar os atributos do jogador no PlayerPrefs
+    private void SavePlayerAttributes()
+    {
+        PlayerPrefs.SetFloat("MaxHealth", player.MaxHealth);
+        PlayerPrefs.SetFloat("MoveSpeed", player.MoveSpeed);
+        PlayerPrefs.SetFloat("Might", player.Might);
+        PlayerPrefs.SetFloat("ProjectileSpeed", player.ProjectileSpeed);
+        PlayerPrefs.Save(); // Salva imediatamente
+    }
+
+    // Função para carregar os atributos do jogador do PlayerPrefs
+    private void LoadPlayerAttributes()
+    {
+        if (PlayerPrefs.HasKey("MaxHealth"))
+            player.MaxHealth = PlayerPrefs.GetFloat("MaxHealth");
+
+        if (PlayerPrefs.HasKey("MoveSpeed"))
+            player.MoveSpeed = PlayerPrefs.GetFloat("MoveSpeed");
+
+        if (PlayerPrefs.HasKey("Might"))
+            player.Might = PlayerPrefs.GetFloat("Might");
+
+        if (PlayerPrefs.HasKey("ProjectileSpeed"))
+            player.ProjectileSpeed = PlayerPrefs.GetFloat("ProjectileSpeed");
+    }
+
+    // Função para carregar o progresso da árvore de habilidades
+    private void LoadTreeProgress(SkillNode node)
+    {
+        if (PlayerPrefs.HasKey(node.id + "_unlocked") && PlayerPrefs.GetInt(node.id + "_unlocked") == 1)
+        {
+            node.UnlockNode(); // Desbloqueia o nó
+        }
+
+        foreach (var child in node.children)
+        {
+            LoadTreeProgress(child);
+        }
+    }
+
+    public void ResetProgress()
+    {
+        PlayerPrefs.DeleteAll(); // Apaga todas as chaves salvas
     }
 }

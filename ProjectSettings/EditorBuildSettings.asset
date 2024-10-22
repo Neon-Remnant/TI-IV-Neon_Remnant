@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a4d8ed6e38f0c22b5a21d5228c6942c8
+  - enabled: 1
+    path: Assets/Scenes/SkillTree.unity
+    guid: 93ee5a5cc68e64542ada75b13a8ae84b
   m_configObjects: {}
