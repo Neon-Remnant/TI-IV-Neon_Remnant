@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3796140699077506495}
   - component: {fileID: 5872491378107800494}
   m_Layer: 0
-  m_Name: Pink Robot
+  m_Name: TurretMan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,8 @@ Transform:
   m_LocalPosition: {x: 2.28, y: 0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6120272301288207770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2716008511454811107
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 1013552797
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2013776319, guid: 4cd3ba2fe50e8064fbdabbc8ed84107f, type: 3}
-  m_Color: {r: 0.9339623, g: 0.030838395, b: 0.8656692, a: 1}
+  m_Sprite: {fileID: 275989738, guid: f7da673c41500a640b29217064700a3c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 136456214031417323}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8b738d7be82d87d4c831898028c3ed10, type: 2}
+  m_Controller: {fileID: 9100000, guid: d0bc02dc3cdbfd94fb59ba523436e784, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.76, y: 1.28}
+    oldSize: {x: 1.32, y: 1.72}
     newSize: {x: 0.76, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5b130ae4bb9674780b451f0f7976de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ecdd2a0d612bef74db0302404b549f9b, type: 2}
+  enemyData: {fileID: 11400000, guid: 8c8b3f51cea21244594788f52889076a, type: 2}
 --- !u!114 &-3796140699077506495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +199,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 8c8b3f51cea21244594788f52889076a, type: 2}
   despawnDistance: 20
+--- !u!1 &1774950950750997125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6120272301288207770}
+  - component: {fileID: 5751674034728296351}
+  m_Layer: 0
+  m_Name: BulletController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6120272301288207770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774950950750997125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3935598206190353491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5751674034728296351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774950950750997125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a9bfec699e450343a8d42ab7303293e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: fc4f38efae7517847a779cf669e9f276, type: 2}

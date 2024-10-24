@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b21d04a21485ece4f93a4ecafc34831a, type: 3}
-  m_Name: Pink Robot Enemy
+  m_Script: {fileID: 11500000, guid: 2a1e936f71d7518428b123e9732f108c, type: 3}
+  m_Name: BulletWeapon
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  maxHealth: 10
-  damage: 30
+  prefab: {fileID: 3195021462834110095, guid: 285011aa061b0204fbc8c99aba183bb9, type: 3}
+  damage: 2
+  speed: 0
+  cooldownDuration: 7
+  pierce: 0

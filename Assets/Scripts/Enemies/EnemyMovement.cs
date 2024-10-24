@@ -17,8 +17,15 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        // Movimentação do inimigo
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemyData.MoveSpeed * Time.deltaTime);
+        // Calcular a distância entre o inimigo e o player
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        // Movimentação do inimigo somente se estiver fora da stopDistance
+        if (distanceToPlayer > enemyData.StopDistance)
+        {
+            // Move o inimigo em direção ao player
+            transform.position = Vector2.MoveTowards(transform.position, player.position, enemyData.MoveSpeed * Time.deltaTime);
+        }
 
         // Verificar a direção do movimento e flipar o sprite
         if (player.position.x < transform.position.x)
