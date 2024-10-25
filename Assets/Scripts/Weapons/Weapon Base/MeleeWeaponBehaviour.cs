@@ -14,6 +14,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
     protected float currentCooldownDuration;
     protected int currentPierce;
     protected PlayerStats playerStats;
+    private EfeitosSonoros efeitosSonoros;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class MeleeWeaponBehavior : MonoBehaviour
         currentPierce = weaponData.Pierce;
 
         playerStats = FindObjectOfType<PlayerStats>();
+        efeitosSonoros = FindObjectOfType<EfeitosSonoros>();
     }
 
     // Start is called before the first frame update
@@ -43,6 +45,11 @@ public class MeleeWeaponBehavior : MonoBehaviour
         if (playerStats != null)
         {
             playerStats.isFieldActive = false;
+        }
+
+        if (efeitosSonoros != null)
+        {
+            efeitosSonoros.TocarSomDoEscudo();  // Reutilizamos o som do escudo para desativação
         }
     }
 
